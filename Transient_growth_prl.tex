@@ -1,0 +1,188 @@
+\documentclass[showpacs,preprintnumbers,amsmath,amssymb,superscriptaddress,aip]{revtex4-1}
+\usepackage{graphicx}
+%\setlength{\parindent}{0in}
+
+% General Latex  --------------------------------------------------
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\beqar{\begin{eqnarray}}
+\def\eeqar{\end{eqnarray}}
+\def\nn{\nonumber}
+\def\ol{\overline}
+\def\para{\parallel}
+
+% Operators  ------------------------------------------------------
+\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+\newcommand{\diffs}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdiffs}[2]{\frac{\partial^2#1}{\partial#2^2}}
+\newcommand{\pdiffxy}[3]{\frac{\partial^2#1}{\partial#2 \partial#3}}
+\newcommand{\pdt}{\partial_t}
+\newcommand{\pdr}{\partial_r}
+\newcommand{\pdth}{\partial_\theta}
+\newcommand{\pdrr}{\partial^2_r}
+
+\newcommand{\enum}[2]{{#1}\times10^{#2}} % 4.2x10^{3} = \enum{4.2}{3}
+
+\newcommand{\vect}[1]{{\bf #1}}
+%\newcommand{\vect}{\overrightarrow}
+%\newcommand{\vect}{\vec}
+\def\div{\nabla\cdot}
+\def\grad{\nabla}
+\def\curl{\nabla\times}
+\newcommand{\gradpar}{\grad_\parallel}
+\newcommand{\gradperp}{\grad_\perp}
+\newcommand{\gradr}{\grad_r}
+\newcommand{\defeq}{\ensuremath{\stackrel{\text{\tiny def}}{=}}}
+
+\newcommand{\savg}[1]{\left<{#1}\right>}
+\newcommand{\vavg}[1]{\left<{#1}\right>_V}
+\newcommand{\thavg}[1]{\left<{#1}\right>_\theta}
+
+% Variable names  -------------------------------------------------
+\newcommand{\vpar} {v_\parallel}
+\newcommand{\Apar} {A_\parallel}
+\newcommand{\jpar} {j_\parallel}
+\newcommand{\kpar} {k_\parallel}
+\newcommand{\kperp} {k_\perp }
+\newcommand{\vperp} {v_\perp }
+\newcommand{\kthe}{k_\theta}
+
+\newcommand{\Evec}{\ensuremath{\boldsymbol{{\rm E}}}}
+\newcommand{\Bvec}{\ensuremath{\boldsymbol{{\rm B}}}}
+\newcommand{\Jvec}{\ensuremath{\boldsymbol{{\rm J}}}}
+\newcommand{\Fvec}{\ensuremath{\boldsymbol{{\rm F}}}}
+\newcommand{\fvec}{\ensuremath{\boldsymbol{{\rm f}}}}
+\newcommand{\vE}{\ensuremath{\boldsymbol{{\rm v}_{E}}}}
+\newcommand{\bo}{\ensuremath{\boldsymbol{{\rm b}_0}}}
+\newcommand{\bvec}{\ensuremath{\boldsymbol{{\rm b}}}}
+\newcommand{\xvec}{\ensuremath{\boldsymbol{{\rm x}}}}
+\newcommand{\yvec}{\ensuremath{\boldsymbol{{\rm y}}}}
+\newcommand{\zvec}{\ensuremath{\boldsymbol{{\rm z}}}}
+\newcommand{\vvec}{\ensuremath{\boldsymbol{{\rm v}}}}
+\newcommand{\jvec}{\ensuremath{\boldsymbol{{\rm j}}}}
+
+\newcommand{\bxgp}{\bvec\times\gradperp}
+
+\newcommand{\vve}{\ensuremath{\boldsymbol{{\rm v}}_{e}}}
+\newcommand{\vvi}{\ensuremath{\boldsymbol{{\rm v}}_{i}}}
+\newcommand{\vpe}{v_{\parallel e}}
+\newcommand{\vpi}{v_{\parallel i}}
+\newcommand{\vvE}{\ensuremath{\boldsymbol{{\rm v}}_{E}}}
+\newcommand{\vvD}{\ensuremath{\boldsymbol{{\rm v}}_{D}}}
+
+\newcommand{\nuei}{\nu_{ei}}
+\newcommand{\nuii}{\nu_{ii}}
+\newcommand{\nue}{\nu_{e}}
+\newcommand{\nuen}{\nu_{en}}
+\newcommand{\nuin}{\nu_{in}}
+\newcommand{\kpe}{\kappa_{\parallel e}}
+
+\newcommand{\rs}{\rho_{s}}
+\newcommand{\ri}{\rho_{i}}
+\newcommand{\wci}{\Omega_{i}}
+\newcommand{\wcix}{\Omega_{ix}}
+\newcommand{\wce}{\Omega_{e}}
+\newcommand{\tomega}{\tilde\omega}
+\newcommand{\Isat}{I_{\rm sat}}
+\newcommand{\fmie}{\frac{m_i}{m_e}}
+\newcommand{\fmei}{\frac{m_e}{m_i}}
+
+
+% Often used dimensions
+\newcommand{\cm}{\rm cm}
+\newcommand{\mm}{\rm mm}
+\newcommand{\cmn}{{\rm cm}^{-3}}
+\newcommand{\mn}{{\rm m}^{-3}}
+\newcommand{\eV}{\rm eV}
+\newcommand{\G}{\rm G}
+\newcommand{\T}{\rm T}
+
+
+
+\begin{document}
+
+\title{Non-modal Growth in LAPD Turbulence}
+
+\author{B. Friedman}
+\email{friedman@physics.ucla.edu}
+
+\author{T.A. Carter}
+
+\affiliation{Department of Physics and Astronomy, University of California, Los Angeles, California 90095-1547, USA}
+
+
+
+\begin{abstract}
+Large Plasma Device (LAPD) [W. Gekelman \emph{et al.}, Rev. Sci. Inst. {\bf 62}, 2875 (1991)] 
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+\section{The Simulation Model}
+\label{dw_model}
+
+A Braginskii-based fluid model~\cite{Braginskii1965} is used to simulate global drift wave turbulence in LAPD using the BOUT++ code~\cite{dudson2009}. 
+The evolved variables in the model are the plasma density, $N$, the electron fluid parallel velocity $\vpe$, the potential vorticity $\varpi \equiv \gradperp \cdot (N_0 \gradperp \phi)$,
+and the electron temperature $T_e$. The ions are assumed cold in the
+model ($T_i = 0$), and sound wave effects are neglected ($v_i = 0$). Details of the simulation code, derivations of the model, grid convergence studies, and analyses of simplified models
+may be found in previously published LAPD simulation studies~\cite{Popovich2010a,Popovich2010b,Umansky2011,friedman2012,friedman2012b}.
+
+The equations are developed with Bohm normalizations: lengths are
+normalized to the ion sound gyroradius, times to the ion
+cyclotron time, velocities to the sound speed, densities to the equilibrium peak density, and electron
+temperatures and potentials to the equilibrium peak electron temperature. These normalizations are constants (not functions of radius) and are calculated from these reference values:
+the magnetic field is $1$ kG, the ion unit mass is $4$, the peak density is $2.86 \times 10^{12}$ cm$^{-3}$, and the peak electron temperature
+is $6$ eV. The equations are:
+
+\beqar
+\label{ni_eq}
+\pdt N = - {\mathbf v_E} \cdot \grad N_0 - N_0 \gradpar \vpe + \mu_N \gradperp^2 N + S_N + \{\phi,N\}, \\
+\label{ve_eq}
+\pdt \vpe = - \fmie \frac{T_{e0}}{N_0} \gradpar N - 1.71 \fmie \gradpar T_e  + \fmie \gradpar \phi - \nue \vpe + \{\phi,\vpe \}, \\
+\label{rho_eq}
+\pdt \varpi = - N_0 \gradpar \vpe  - \nuin \varpi + \mu_\phi \gradperp^2 \varpi + \{\phi,\varpi \}, \\
+\label{te_eq}
+\pdt T_e = - {\mathbf v_E} \cdot \grad T_{e0} - 1.71 \frac{2}{3} T_{e0} \gradpar \vpe + \frac{2}{3 N_0} \kpe \gradpar^2 T_e  \nonumber \\
+- \frac{2 m_e}{m_i} \nue T_e  + \mu_T \gradperp^2 T_e +  S_T + \{\phi,T_e\}.
+\eeqar
+
+In these equations, $\mu_N$, $\mu_T$, and $\mu_\phi$ are artificial diffusion and viscosity coefficients used for subgrid dissipation. They are large enough to allow saturation
+and grid convergence~\cite{friedman2012}, but small enough to allow for turbulence to develop. In the simulations, they are all given the same value of $1.25 \times 10^{-3}$ in Bohm-normalized units. 
+This is the only free parameter in the simulations. All other parameters such as the electron collisionality $\nue$, ion-neutral
+collisionality $\nuin$, parallel electron thermal conductivity $\kpe$, and mass ratio $\fmie$ are calculated from experimental quantities.
+There are two sources of free energy: the density gradient due to the equilibrium density profile $N_0$, and the equilibrium electron temperature gradient in $T_{e0}$, both of which are
+taken from experimental fits. $N_0$ and $T_{e0}$ are functions of only the radial cylindrical coordinate $r$, and they are shown in Fig.~\ref{eq_profiles}. 
+The mean potential profile $\phi_0$ is set to zero in the model, and terms involving $\phi_0$ are not included in Eqs.~\ref{ni_eq}-\ref{te_eq}. 
+The justification for this is that biasable azimuthal limiters in LAPD allow for the mean $E \times B$ flow and flow shear to be varied with high precision, even allowing the flow to be
+nulled out~\cite{schaffner2012}. 
+The simulations in this paper use the $N_0$, $T_{e0}$, and $\phi_0$ profiles from the nulled out flow experiment, justifying setting the mean potential profile to zero in the simulations.
+
+Simulations also use density and temperature sources ($S_n$ and $S_T$) in order to keep the equilibrium profiles from relaxing away from their experimental shapes. 
+These sources suppress the azimuthal averages ($m=0$ component of the density and temperature fluctuations) at each time step. 
+The azimuthal average of the potential $\phi$ is allowed to evolve in
+the simulation, allowing zonal flows to form, although they are relatively unimportant to the turbulent dynamics~\cite{friedman2012b}.
+
+The terms in Poisson brackets are the $E \times B$ advective nonlinearities, which are the only nonlinearities used in the simulations.
+The numerical simulations use finite differences in all three dimensions and use cylindrical annular geometry ($12<r<40$ cm). The radial extent used in the simulation
+encompasses the region where fluctuations are above a few percent in the experiment. Therefore, the radial boundaries are fixed to zero value.
+
+\section{Conclusion}
+\label{conclusion}
+
+
+\begin{acknowledgments}
+
+\end{acknowledgments}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliography{refs}
+%\bibliographystyle{unsrt}
+
+
+\end{document}
