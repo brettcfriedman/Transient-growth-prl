@@ -121,6 +121,23 @@ Large Plasma Device (LAPD) [W. Gekelman \emph{et al.}, Rev. Sci. Inst. {\bf 62},
 
 \section{Introduction}
 
+Since the early 1990's, it has become clear that in dynamical systems with energetically conservative nonlinearities, 
+the linear operator must be non-normal for subcritical turbulence to occur~\cite{trefethen1993}.
+Non-normality is the condition that an operator or matrix does not commute with its adjoint. One consequence of non-normality is that the linear eigenvectors of the operator are nonorthogonal.
+In non-normal systems, even when all of the eigenvalues lie in the stable domain (where all linear eigenvectors decay exponential), 
+certain types of fluctuations in a system can access the free energy in the equilibrium gradients and transiently amplify the fluctuation energy in the system. 
+A paradigmatic illustration of this transient growth process may be seen if Figure 2 of a review by Schmid~\cite{schmid2007}.
+Such behavior is obscured by traditional normal mode analysis, which in non-normal systems, only effectively describes the long time asymptotic behavior of fluctuations under the 
+action of the linear operator. Transient events, such as those that can dominate nonlinear turbulent evolution, require initial-value (non-modal) calculations rather than normal mode calculations.
+Non-modal analysis, in fact, has provided the tool that can explain and predict subcritical turbulence.
+
+While the hydrodynamics community has embraced non-modal analysis and transient growth over the past two decades, the plasma community
+still heavily relies on normal mode analysis to inform turbulent predictions and observations, often without checking for non-modal effects. 
+While this has been successful in certain facets of plasma physics, it has failed in others.
+
+Direct numerical simulations of plasma turbulence have become increasingly common with the increase in computing power. These simulations produce so much data that the results can be difficult to
+comprehend. It is often easiest to compare simulation results with simple models to achieve some understanding.
+
 \section{The Simulation Model}
 \label{dw_model}
 
@@ -153,8 +170,8 @@ In these equations, $\mu_N$, $\mu_T$, and $\mu_\phi$ are artificial diffusion an
 and grid convergence~\cite{friedman2012}, but small enough to allow for turbulence to develop. In the simulations, they are all given the same value of $1.25 \times 10^{-3}$ in Bohm-normalized units. 
 This is the only free parameter in the simulations. All other parameters such as the electron collisionality $\nue$, ion-neutral
 collisionality $\nuin$, parallel electron thermal conductivity $\kpe$, and mass ratio $\fmie$ are calculated from experimental quantities.
-There are two sources of free energy: the density gradient due to the equilibrium density profile $N_0$, and the equilibrium electron temperature gradient in $T_{e0}$, both of which are
-taken from experimental fits. $N_0$ and $T_{e0}$ are functions of only the radial cylindrical coordinate $r$, and they are shown in Fig.~\ref{eq_profiles}. 
+There are two sources of free energy: the radial density gradient due to the equilibrium density profile $N_0$, and the equilibrium radial electron temperature gradient in $T_{e0}$, both of which are
+taken from experimental fits. 
 The mean potential profile $\phi_0$ is set to zero in the model, and terms involving $\phi_0$ are not included in Eqs.~\ref{ni_eq}-\ref{te_eq}. 
 The justification for this is that biasable azimuthal limiters in LAPD allow for the mean $E \times B$ flow and flow shear to be varied with high precision, even allowing the flow to be
 nulled out~\cite{schaffner2012}. 
