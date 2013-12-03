@@ -166,9 +166,9 @@ neglected because we model only one experiment in which the equilibrium radial e
 The equations are global and partially linearized -- the only nonlinearities we retain are the advective nonlinearities in the Poisson brackets. 
 We also add artificial diffusion and viscosity terms with small numerical coefficients ($\mu_N, \mu_\phi, \mu_T = 10^{-3}$), 
 used for numerical stability in nonlinear simulations, which are performed with the BOUT++ code~\cite{dudson2009}. We use periodic axial and zero value radial 
-boundary conditions. Further details of the model, including validation studies, may be found in the references~\cite{Popovich2010a,Popovich2010b,Umansky2011,friedman2012,friedman2012b},
+boundary conditions. Further details of the model, including validation studies, may be found in the references~\cite{Popovich2010a,Popovich2010b,Umansky2011,friedman2012b,friedman2013},
 though we mention here that the model reproduces all statistical properties of the experimental turbulence within a factor of two, and in most cases, much better than that.
-Of particular interest, was the finding that the sustainment of the turbulence in the nonlinear simulation is dominated by a nonlinear instability process~\cite{friedman2012,friedman2012b}.
+Of particular interest, was the finding that the sustainment of the turbulence in the nonlinear simulation is dominated by a nonlinear instability process~\cite{friedman2012b,friedman2013}.
 This nonlinear instability process -- discovered by Drake et al.~\cite{drake1995} in simulations using a similar plasma model to ours -- works as follows: long $k_\para=0$ convective filaments transport
 density (and temperature to a lesser extent) across the equilibrium density profile, setting up $k_\para=0$ density filaments. These filaments are unstable to drift waves causing a secondary drift
 wave instability to grow on the filaments. These drift waves, which have finite $k_\para$ and propagate primarily radially, nonlinearly couple to one another and reinforce the convective filaments.
@@ -186,7 +186,7 @@ In fact, it is surprisingly similar to the so-called "lift-up'' mechanism often 
 making it particularly apt to explore in a non-modal framework. Furthermore, since the other steps of the nonlinear instability
 are controlled by nonlinear interactions, the convective transport is the only step responsible for energy injection and dissipation from the laminar state. This fact may be seen from simple
 energetic principles. Starting from Eqs.~\ref{ni_eq}-\ref{te_eq},
-an equation for the evolution of the energy can be obtained~\cite{friedman2012,friedman2012b}. The equation takes the form:
+an equation for the evolution of the energy can be obtained~\cite{friedman2012b,friedman2013}. The equation takes the form:
 
 \beq
 \label{dEdt_def}
@@ -298,8 +298,8 @@ if the initial vector were one of the linear eigenvectors.
 \centerline{\includegraphics[]{m20n0_time_evs}}
 \caption{a) The maximum growth ratio curve $G_{\rm{max}}(t)$ (dashed line) for $n=0,m=20$, and an ensemble of growth ratio curves (solid gray lines, with the solid black line the ensemble average)
 that start with a random initial condition $u(0)$ and evolve under the linear operator. b) A zoomed in version of the ensemble of growth ratio curves. c) A further zoomed in version of the ensemble of
-curves with a time range of $2 \pi / \omega_*$, which is the characteristic linear time scale for drift waves. d) The instantaneous growth rates as a function of time of the maximum and the ensemble 
-average growth ratios.}
+curves with a time range of $\omega_s^{-1}$, which is the characteristic linear time scale for drift waves. 
+d) The instantaneous growth rate as a function of time of the the ensemble averaged growth ratio along with the average value over the time spanning $\omega_s^{-1}$.}
 \label{m20n0_time_evs}
 \end{figure}
 
@@ -310,7 +310,7 @@ In practice, we completely randomize the system (initial condition) and then let
 While the nonlinearities obviously do not affect the system in discrete time steps, this simplification provides a way to use linear non-modal analysis in a predictive manner. 
 Since we do not know, \emph{a priori} at what level the turbulence will saturate, 
 we cannot calculate the relative magnitude of the nonlinear terms in the equations to get the nonlinear time scale $t_{nl}$.
-Thus, we invoke the conjecture of \emph{Critical Balance}, which posits that the nonlinear time scale equals the linear time scale at all spatial scales~\cite{schekochihin2012}. 
+Thus, we invoke the conjecture of \emph{critical balance}, which posits that the nonlinear time scale equals the linear time scale at all spatial scales~\cite{schekochihin2012}. 
 We can then estimate the nonlinear time scale as $t_{nl} = \omega_s^{-1}$, the inverse of the linear frequency of the fastest growing linear eigenmode (at each $m,n$).
 
 In Fig.~\ref{m20n0_time_evs} c), we show the randomly initialized linear evolution curves from start up until a time of $\omega_s^{-1}$. 
@@ -318,22 +318,32 @@ Then, in Fig.~\ref{m20n0_time_evs} d), we calculate the instantaneous growth rat
 For comparison, the instantaneous growth rate of the maximum growth curve is also shown.
 In theory, this method should produce ensembled-averaged growth rate curves (like that in Fig.~\ref{m20n0_time_evs} d)) that have instantaneous growth rates consistent with the instantaneous
 turbulent growth rates. Both the instantaneous transient growth rates and the turbulent growth rates have an average and a range associated with them. We show a comparison of their averages
-in Fig.~\ref{spec_nl_transient_gamma}, which we call the Transient and Turbulent Growth Rate Spectra. They are fairly similar, especially when compared to the eigenmode spectra, also
-shown in Fig.~\ref{spec_nl_transient_gamma}. Thus, this randomizing transient method, which requires only linear calculations, somewhat reproduces the energetic properties of the turbulence.
+in Fig.~\ref{spec_nl_transient_gamma}, which we call the Transient and Turbulent Growth Rate Spectra. The $n=0$ curves are fairly similar, especially when compared to the eigenmode spectra, also
+shown in Fig.~\ref{spec_nl_transient_gamma}, although the transient curve is slightly down-shifted in $m$ compared to the turbulent curve. 
+The $n=1$ curves, on the other hand, are not very similar, although they trend with $m$ in the same way, which is very different from the linear eigenmode trend.
+The difference between the $n=1$ transient and turbulent growth rate spectra is due to nonlinear effects not captured by the simple transient calculation procedure. In particular, the turbulence
+exhibits strong energy transfer from $n=0$ to $n=1$ Fourier components which is then dissipated by electron-ion collisions as the electrons stream along the field lines~\cite{friedman2012b}. 
+This extra $n=1$ energy dissipation in the turbulent simulation is not a transient effect, and the $n=0$ to $n=1$ transfer is not a simple nonlinear mixing effect.
 
 \begin{figure}
 \centerline{\includegraphics[]{spec_nl_transient_gamma}}
-\caption{The linear, turbulent, and transient growth rate spectra. The transient growth rate spectra is calculated by the average growth rate over a time $2 \pi / \omega_*$ for the ensemble average
+\caption{The linear, turbulent, and transient growth rate spectra. The transient growth rate spectra is calculated by the average growth rate over a time $\omega_s^{-1}$ for the ensemble average
 growth ratio curves.}
 \label{spec_nl_transient_gamma}
 \end{figure}
 
-These transient growth rates that comprise the curves in Fig.~\ref{spec_nl_transient_gamma} are more physically relevant to turbulence than the linear eigenmode growth rates. When the linear system under
-consideration is highly non-normal, transient growth rate analysis should be performed in place of (or in addition to) linear eigenmode analysis. Furthermore, the transient growth rates should
-be used in the kinds of predictions that are currently made with eigenmode growth rates. For instance, quasilinear theory uses the most unstable eigenmode growth rate $\gamma_{s,max}$ 
-to predict the turbulent saturation levels through the mixing length formula $\gamma_s/k_\perp^2$. Using this formula with $\gamma_{s,\rm{max}} = 0.002$ and $m=60$, one would predict a turbulent saturation
-level on the order of $0.1 \%$. On the other hand, using this formula with the transient values -- $\gamma_{t,\rm{max}} = 0.003, m=10$ -- we predict the saturation level on the order of $10 \%$,
+Nevertheless, our randomizing transient method, which requires only linear calculations, reproduces energetic growth properties of the turbulence that are not captured by eigenmode analysis.
+Clearly, when the linear systems are highly non-normal, transient growth rate analyses should be performed in place of (or in addition to) linear eigenmode analyses. 
+Furthermore, the transient growth rates should be used in the kinds of predictions that are currently made with eigenmode growth rates. 
+For instance, quasilinear theory uses the most unstable eigenmode growth rate $\gamma_{s,max}$ to predict the turbulent saturation levels through the mixing length formula $\gamma/k_\perp^2$. 
+Using this formula with $\gamma_{s,\rm{max}} = 0.002$ and $m=60$, one would predict a turbulent saturation level on the order of $0.1 \%$. 
+On the other hand, using this formula with the transient values -- $\gamma_{t,\rm{max}} = 0.003, m=10$ -- we predict the saturation level on the order of $10 \%$,
 which matches the saturation level in the nonlinear simulation.
+
+In summary, non-modal linear calculations are more informative than normal mode calculations when the linear system under consideration is highly non-normal. In the specific case of a low-flow
+LAPD experiment, a nonlinear instability with linear $k_\para=0$ drive dominates the energy dynamics of the turbulence. While this is a surprising result in light of normal mode analysis,
+it is not at all surprising given the system's non-modal behavior. In general, non-modal initial-value analysis is difficult to quantify and make predictive, but using some simple nonlinear modelling,
+we have shown that it is possible.
 
 \begin{acknowledgments}
 
