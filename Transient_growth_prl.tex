@@ -207,27 +207,22 @@ the Poisson bracketed advective nonlinearities in the model are energetically co
 Consequently, the fluctuation energy originates completely from $Q$, the linear convective transport mechanism.
 
 \begin{figure}
-\centerline{\includegraphics[width=0.4\textwidth]{transient_n0_n1_growth}}
-\caption{Linear evolution of energy starting from a turbulent initial state. The $n=0$ curves have an initial period of transient growth before exponentially decaying.}
-\label{transient_n0_n1_growth}
+\centerline{\includegraphics[width=0.55\textwidth]{n0_n1_growth}}
+\caption{a) Linear evolution of energy starting from a turbulent initial state. The $n=0$ curves have an initial period of transient growth before exponentially decaying.
+b) Linear and turbulent growth rate spectra for $n=0$ (solid lines) and $n=1$ (dashed lines) Fourier components. The linear growth rates are those of the least stable eigenmodes,
+while the turbulent growth rates represent $\pdiff{E}{t}|_{\rm{lin}}/2 E$ from the nonlinear simulation. The shaded region marks the $1 \sigma$ spread in the turbulent spectrum,
+obtained from the distribution of growth rates in the nonlinear simulation.}
+\label{n0_n1_growth}
 \end{figure}
 
 This convective transport of density filaments is akin to the paradigmatic ``lift-up'' mechanism in hydrodynamic shear flows whereby streamwise vortices drive streamwise streaks~\cite{krommes1999}.
 Both are transient growth processes. We see this in our simulations by following the evolution of the energy of several $m,n$ modes after turning off the nonlinearities in an already
-turbulent simulation. A few representative modes are shown in Fig.~\ref{transient_n0_n1_growth}. The linear transient growth of the filamentary $n=0$ structures is evident as their modes 
+turbulent simulation. A few representative modes are shown in Fig.~\ref{n0_n1_growth} a). The linear transient growth of the filamentary $n=0$ structures is evident as their modes 
 grow transiently before decaying exponentially at the rate of their least stable eigenmode. Such behavior is rather unituitive to some because all $n=0$ linear eigenmodes are stable, 
 and the normal mode paradigm has conditioned us to believe that a linear superposition of such eigenmodes should decay. But as the hydrodynamics community discovered, linear
 superpositions of nonorthogonal vectors may behave unintuitively.
 Notice now that the $n=1,m=20$ mode decays transiently before growing exponentially with growth rate of the most unstable eigenmode. This isn't that interesting since this behavior
 can occur in normal systems, but it nevertheless explains later results.
-
-\begin{figure}
-\centerline{\includegraphics[width=0.45\textwidth]{spec_nl_gamma}}
-\caption{Linear and turbulent growth rate spectra for $n=0$ (solid lines) and $n=1$ (dashed lines) Fourier components. The linear growth rates are those of the least stable eigenmodes,
-while the turbulent growth rates represent $\pdiff{E}{t}|_{\rm{lin}}/2 E$ from the nonlinear simulation. The shaded region marks the $1 \sigma$ spread in the turbulent spectrum,
-obtained from the distribution of growth rates in the nonlinear simulation.}
-\label{spec_nl_gamma}
-\end{figure}
 
 Since the transient growth, which is behind subcritical turbulence, is a purely linear phenomenon, it has long been a goal of researchers to predict the onset of subcritical turbulence using
 only linear, non-modal calculations. It is our goal, however, to use linear calculations to understand and even predict turbulent properties.
@@ -238,14 +233,14 @@ An effective instantaneous growth rate $\gamma_t(m,n) = \diff{E(m,n)}{t}\big|_{\
 This effective growth rate is calculated from the spatial structure of the fluctuations, so it is well-defined for both turbulent fluctuations and eigenmode fluctuations. If calculated
 from a linear simulation run for a sufficiently long time, $\gamma_t(m,n)$ is the same as the eigenmode growth rate of the least stable linear eigenmode for each $m,n$.
 For turbulence, $\gamma_t(m,n)$ is generally not equal to an eigenmode growth rate, especially in the case where the system is non-normal.
-We plot this growth rate in Fig.~\ref{spec_nl_gamma} for $n=0$ and $n=1$ components. The turbulent growth rate curves are calculated from this formula, 
+We plot this growth rate in Fig.~\ref{n0_n1_growth} b) for $n=0$ and $n=1$ components. The turbulent growth rate curves are calculated from this formula, 
 averaged over a time of about $3 \times 10^{4} \ \omega_{ci}^{-1}$ during the saturated turbulent phase of the nonlinear simulation.
 Also, we show the $1 \sigma$ contour, which indicates how greatly $\gamma_t$ varies over time.
-Fig.~\ref{spec_nl_gamma} indicates that while the linear eigenmodes are unstable for $n=1$ and stable for $n=0$,
+Fig.~\ref{n0_n1_growth} b) indicates that while the linear eigenmodes are unstable for $n=1$ and stable for $n=0$,
 the turbulent growth rates are positive for $n=0, m<50$ (subcritical-like behavior), but negative elsewhere. 
-Fig.~\ref{transient_n0_n1_growth} hinted at these characteristics, but this figure represents quantitative confirmation.
+Fig.~\ref{n0_n1_growth} a) hinted at these characteristics, but this figure represents quantitative confirmation.
 
-Our goal now is to reproduce the turbulent growth rate curves in Fig.~\ref{spec_nl_gamma} without performing nonlinear simulations. This is difficult because the growth rates depend on turbulent
+Our goal now is to reproduce the turbulent growth rate curves in Fig.~\ref{n0_n1_growth} b) without performing nonlinear simulations. This is difficult because the growth rates depend on turbulent
 structures, which for non-normal systems, may be very different from eigenmode structures, and which change in time due to transient evolution.
 It is clear, though, that the turbulent structures are a result of both linear evolution and nonlinear energy transfer. 
 If we imagine that the nonlinearities randomize the turbulent structures at each wavenumber while the linearities evolve the structures
@@ -306,7 +301,7 @@ It is extremely unlikely to choose a random initial vector that either optimally
 if the initial vector were one of the linear eigenvectors. 
 
 \begin{figure}
-\centerline{\includegraphics[width=0.5\textwidth]{m20n0_time_evs}}
+\centerline{\includegraphics[width=0.55\textwidth]{m20n0_time_evs}}
 \caption{a) The maximum growth ratio curve $G_{\rm{max}}(t)$ (dashed line) for $n=0,m=20$, and an ensemble of growth ratio curves (solid gray lines, with the solid black line the ensemble average)
 that start with a random initial condition $u(0)$ and evolve under the linear operator. b) The ensemble curves with $t=\omega_s^{-1}$ indicated, at which we cut off the evolution.}
 \label{m20n0_time_evs}
