@@ -124,10 +124,10 @@ We compare the resulting growth rate spectrum to that obtained from a nonlinear 
 
 \maketitle
 
-Normal mode analysis -- the calculation of eigenvalues and eigenvectors of a linearized dynamical system -- has long been used to solve a number of problems ranging from
+Normal mode analysis -- the calculation of eigenvalues and eigenvectors of a linearized dynamical system -- has long been used to solve problems ranging from
 heat conduction along a solid bar to quantum mechanical energy states of atoms. Despite its wide-ranging success, normal mode analysis has
 failed in important instances, particularly in predicting the onset of subcritical turbulence in hydrodynamic flows. 
-The reason for this failure was not explained until the early 1990's when Trefethen and others attributed the pitfalls of normal mode analysis to the non-normality of linear operators of
+The reason for this failure was explained in the early 1990's when Trefethen and others attributed the pitfalls of normal mode analysis to the non-normality of linear operators of
 dynamical systems~\cite{trefethen1993,schmid2007}. A non-normal operator has 
 eigenvectors that are nonorthogonal to one another. One consequence of eigenvector nonorthogonality is that even when all eigenvectors decay exponentially under linear evolution, 
 superpositions of eigenvectors can grow, albeit transiently.
@@ -181,14 +181,12 @@ boundary conditions. Further details of the model, including validation studies,
 though we mention here that the model does very well in reproducing
 the statistical properties of the experimentally-observed turbulence.
 
-The nonlinear simulation reveals a fascinating property of the turbulence -- it is dominated by a nonlinear instability process despite being linearly unstable to drift waves~\cite{friedman2012b,friedman2013}.
+The nonlinear simulation reveals a fascinating property of the turbulence -- 
+it is dominated by a nonlinear instability process despite being linearly unstable to drift waves~\cite{friedman2012b,friedman2013}.
 This nonlinear instability process, which was discovered by Drake et al.~\cite{drake1995} in a similar plasma model, works as follows: 
-magnetic-field-aligned ($k_\para=0$) convective filaments transport density across the equilibrium density gradient, setting up $k_\para=0$ density filaments (the same applies to the temperature). 
-These filaments are unstable to a secondary drift wave instability,
-which grows on the periphery of the filaments. 
-These drift waves, which have finite $k_\para$ and propagate primarily
-radially, nonlinearly couple to one another and reinforce the original
-convective filaments.
+magnetic-field-aligned ($k_\para=0$) convective filaments transport density across the equilibrium density gradient, setting up $k_\para=0$ density filaments. 
+These filaments are unstable to a secondary drift wave instability, which grows on the periphery of the filaments. 
+These drift waves, which have finite $k_\para$, nonlinearly couple to one another and reinforce the original convective filaments.
 
 Although the instability is called a nonlinear instability, the first part of the mechanism -- the transport of background density by the convective filaments -- is a linear one.
 In fact, the other parts of the mechanism are driven by energetically conservative nonlinear interactions, 
@@ -215,39 +213,38 @@ obtained from the distribution of growth rates in the nonlinear simulation.}
 \label{n0_n1_growth}
 \end{figure}
 
-This convective transport of density filaments is akin to the paradigmatic ``lift-up'' mechanism in hydrodynamic shear flows whereby streamwise vortices drive streamwise streaks~\cite{krommes1999}.
+This convective transport of density filaments is akin to the paradigmatic ``lift-up'' mechanism in hydrodynamic shear flows whereby streamwise vortices drive streamwise 
+streaks~\cite{trefethen1993,krommes1999}.
 Both are transient growth processes. We see this in our simulations by following the evolution of the energy of several $m,n$ modes after turning off the nonlinearities in an already
 turbulent simulation. A few representative modes are shown in Fig.~\ref{n0_n1_growth} a). The linear transient growth of the filamentary $n=0$ structures is evident as their modes 
 grow transiently before decaying exponentially at the rate of their least stable eigenmode. Such behavior is rather unituitive to some because all $n=0$ linear eigenmodes are stable, 
 and the normal mode paradigm has conditioned us to believe that a linear superposition of such eigenmodes should decay. But as the hydrodynamics community discovered, linear
 superpositions of nonorthogonal vectors may behave unintuitively.
-Notice now that the $n=1,m=20$ mode decays transiently before growing exponentially with growth rate of the most unstable eigenmode. This isn't that interesting since this behavior
-can occur in normal systems, but it nevertheless explains later results.
+Notice now that the $n=1,m=20$ mode decays transiently before growing exponentially with growth rate of the most unstable eigenmode. This isn't necessarily due to eigenvector nonorthogonality,
+but is nevertheless unintuitive.
 
-Since the transient growth, which is behind subcritical turbulence, is a purely linear phenomenon, it has long been a goal of researchers to predict the onset of subcritical turbulence using
-only linear, non-modal calculations. It is our goal, however, to use linear calculations to understand and even predict turbulent properties.
+Since transient growth, which is responsible for subcritical turbulence, is a purely linear phenomenon, it has long been a goal of researchers to predict the onset of subcritical turbulence using
+only linear, non-modal calculations. It is our goal, however, to use linear calculations to go beyond predicting onset and predict fluctuation amplitudes and transport associated with saturated turbulence.
 Perhaps one of the most useful statistical properties that we can predict is the turbulent growth rate spectrum.
 To obtain a growth rate from the nonlinear simulation, we begin with the expression $\diff{E(m,n)}{t}\big|_{\rm{lin}} = Q(m,n) + D(m,n)$, 
-which accounts for the total net energy injection at each $m,n$ into the fluctuations. 
-An effective instantaneous growth rate $\gamma_t(m,n) = \diff{E(m,n)}{t}\big|_{\rm{lin}}/ 2 E(m,n)$ can then be defined. 
-This effective growth rate is calculated from the spatial structure of the fluctuations, so it is well-defined for both turbulent fluctuations and eigenmode fluctuations. If calculated
-from a linear simulation run for a sufficiently long time, $\gamma_t(m,n)$ is the same as the eigenmode growth rate of the least stable linear eigenmode for each $m,n$.
-For turbulence, $\gamma_t(m,n)$ is generally not equal to an eigenmode growth rate, especially in the case where the system is non-normal.
+which accounts for the total net energy injection into the fluctuations at each $m,n$. 
+An effective growth rate $\gamma_e(m,n) = \diff{E(m,n)}{t}\big|_{\rm{lin}}/ 2 E(m,n)$ can then be defined. 
+This growth rate is calculated from the spatial structure of the fluctuations, so it is well-defined for both turbulent fluctuations and eigenmode fluctuations. If calculated
+from a linear simulation run for a sufficiently long time, $\gamma_e(m,n)$ is the same as the spectral eigenmode growth rate $\gamma_s(m,n)$ of the least stable linear eigenmode.
+For turbulence, $\gamma_e(m,n)$ is generally not equal to an eigenmode growth rate, especially when the system is non-normal.
 We plot this growth rate in Fig.~\ref{n0_n1_growth} b) for $n=0$ and $n=1$ components. The turbulent growth rate curves are calculated from this formula, 
 averaged over a time of about $3 \times 10^{4} \ \omega_{ci}^{-1}$ during the saturated turbulent phase of the nonlinear simulation.
-Also, we show the $1 \sigma$ contour, which indicates how greatly $\gamma_t$ varies over time.
+Also, we show the $1 \sigma$ contour, which indicates how greatly $\gamma_e$ varies over time.
 Fig.~\ref{n0_n1_growth} b) indicates that while the linear eigenmodes are unstable for $n=1$ and stable for $n=0$,
 the turbulent growth rates are positive for $n=0, m<50$ (subcritical-like behavior), but negative elsewhere. 
 Fig.~\ref{n0_n1_growth} a) hinted at these characteristics, but this figure represents quantitative confirmation.
 
-Our goal now is to reproduce the turbulent growth rate curves in Fig.~\ref{n0_n1_growth} b) without performing nonlinear simulations. This is difficult because the growth rates depend on turbulent
-structures, which for non-normal systems, may be very different from eigenmode structures, and which change in time due to transient evolution.
-It is clear, though, that the turbulent structures are a result of both linear evolution and nonlinear energy transfer. 
-If we imagine that the nonlinearities randomize the turbulent structures at each wavenumber while the linearities evolve the structures
-deterministically, we can develop a procedure for choosing proper spatial structures to use in calculating effective growth rates.
-To elucidate this procedure, we begin by taking Eqs.~\ref{ni_eq}-\ref{te_eq} and Fourier decomposing in the azimuthal and axial directions.
-Then, we discritize in the radial direction and approximate radial derivatives with finite differences. 
-The resulting system of equations may be written in matrix form:
+Our goal now is to reproduce the turbulent growth rate curves in Fig.~\ref{n0_n1_growth} b) without performing nonlinear simulations. 
+The difficulty is in determining what kinds of spatial structures will dominate the turbulence, or alternatively, how will nonlinear energy transfer affect transient growth properties? 
+We use the anzatz that nonlinearities randomize the turbulent spatial structure at each wavenumber with a period of 
+one eddy decorrelation time to develop a procedure for calculating effective growth rates. 
+We begin by taking Eqs.~\ref{ni_eq}-\ref{te_eq} and Fourier decomposing in the azimuthal and axial directions.  Then, we discritize in the radial direction and
+approximate radial derivatives with finite differences.  The resulting system of equations may be written in matrix form:
 
 \beqar
 \label{mat_eq}
@@ -255,15 +252,11 @@ The resulting system of equations may be written in matrix form:
 - \sum_{m',n'}  \mathbf{v}_{E,m-m',n-n'} \cdot \gradperp \left( \mathbf{B}_{m',n'} \mathbf{v}_{m',n'}(t) \right),
 \eeqar
 where $\mathbf{v}_{m,n} = \left( N(r), \vpe(r), \phi(r), T_e(r) \right)_{m,n}^{T}$ is the state of the system,
-and $\mathbf{B}_{m,n}$ and $\mathbf{C}_{m,n}$ are coefficient matrices that include the equilibrium information and finite difference coefficients. The first term on the RHS represents the linearities,
-and the second term the nonlinearities.
-The equations for different $m$ and $n$ are separated, although the nonlinearity couples the different $m$'s and $n$'s. 
-In other words, eigenmodes with different $m$ and $n$ are orthogonal and linearly non-interacting. Note that for each $m,n$, there exist $4 \times N_r$ linearly
-independent, but nonorthogonal eigenvectors. Hence forth, we drop the $m,n$ subscripts.
+and $\mathbf{B}_{m,n}$ and $\mathbf{C}_{m,n}$ are coefficient matrices that include the equilibrium information and finite difference coefficients. The first term on the RHS represents the linearities
+and the second term the nonlinearities. Note that for each $m,n$, there exist $4 \times N_r$ linearly independent, but nonorthogonal eigenvectors. Hence forth, we drop the $m,n$ subscripts.
 
 In order to use non-modal analysis to calculate growth rates and other measures, one must choose a norm and inner product with which to work. While any choice of
-inner product is possible, including that which orthogonalizes all eigenvectors, a physically relevant one such as an energy inner product 
-is generally preferred~\cite{camargo1998,schmid2007,camporeale2010}. 
+inner product is possible, a physically relevant one such as an energy inner product is generally preferred~\cite{camargo1998,schmid2007,camporeale2010}. 
 Recall that the inner product of two vectors may be written $\left< \mathbf{x},\mathbf{y} \right> = \mathbf{y}^{*} \mathbf{M} \mathbf{x}$,
 where $^*$ stands for the conjugate transpose, and $\mathbf{M}$ is a positive-definite matrix. $\mathbf{M}$ is chosen so that 
 $||\mathbf{v}|| = \sqrt{\left< \mathbf{v},\mathbf{v} \right>} = \sqrt{E}$, where $E$ is the energy. Furthermore, it is convenient in
@@ -283,18 +276,19 @@ the behavior of $||\mathbf{u}(t)||$. Therefore, we introduce the growth ratio $G
 \label{g_def}
 G(t) = \frac{||\mathbf{u}(t)||}{||\mathbf{u}(0)||} = \frac{||e^{\mathbf{A} t} \mathbf{u}(0)||}{||\mathbf{u}(0)||}.
 \eeq
-This ratio is bounded from above by $G_{\rm{max}}(t) = ||e^{\mathbf{A} t}||$. $G_{\rm{max}}(t) = e^{\gamma_s t}$, where $\gamma_s$ is the spectral growth rate
-if and only if $\mathbf{A}$ is normal~\cite{schmid2007}. Otherwise, $G_{\rm{max}}(t) > e^{\gamma_s t}$. 
+This ratio is bounded from above by $G_{\rm{max}}(t) = ||e^{\mathbf{A} t}||$. $G_{\rm{max}}(t) = e^{\gamma_s t}$ if and only if $\mathbf{A}$ is normal~\cite{schmid2007}. 
+Otherwise, $G_{\rm{max}}(t) > e^{\gamma_s t}$. 
 
-It is common practice in normal mode analysis to look for the least stable eigenmode, the idea being that eventually the fastest growing structure will overcome the others.
+It is common practice in normal mode analysis to look for the least stable eigenmode because the fastest growing structure will eventually overcome the others.
 For the non-modal case, it is common to study the properties of $G_{\rm{max}}(t)$, because if $G_{\rm{max}}(t) > 1$ at any time, there is a possibility of amplification, even if it is only transient.
-This allows for the possibility of exciting subcritical turbulence, which is where non-modal analysis is most often applied. 
+Subcritical turbulence may then be possible.
 However, it can be misleading to study only $G_{\rm{max}}(t)$ when predicting specific properties of turbulence because
 $G_{\rm{max}}(t)$ is only the upper envelope of all possible $G(t)$ curves. No one particular initial condition $\mathbf{u}(0)$ evolves along $G_{\rm{max}}(t)$. 
 Furthermore, it isn't obvious what kind of spatial structure or structures will come to dominate a turbulent system. 
 In non-normal systems, unlike in the normal systems, optimal structures don't amplify themselves, rather, they evolve while increasing the total fluctuating energy.
+For our purposes, it is more useful to study $G(t)$ curves that use initially random starting conditions.
 
-We illustrate $G_{\rm{max}}(t)$ along with $G(t)$ at $m=20, n=0$ for several random initial conditions in Fig.~\ref{m20n0_time_evs} a).. Despite the fact that all eigenmodes at this
+We illustrate $G_{\rm{max}}(t)$ along with $G(t)$ at $m=20, n=0$ for several random initial conditions in Fig.~\ref{m20n0_time_evs} a). Despite the fact that all eigenmodes at this
 wavenumber are stable, there is the possibility for transient amplification by a factor of $20$. Furthermore, a sample of randomly initialized vectors are all transiently amplified, but none display
 optimal growth as compared to $G_{\rm{max}}(t)$.
 It is extremely unlikely to choose a random initial vector that either optimally amplifies the energy at any time or one that monotonically decays, which would be the case
@@ -310,34 +304,34 @@ that start with a random initial condition $u(0)$ and evolve under the linear op
 Non-modal analysis has likely remained a qualitative endeavor due to the time-dependent growth properties of initial-value analysis as well as its intrinsic dependence on initial conditions.
 The key to quantifying non-modal analysis and making it predictive is to successfully model the effect that the nonlinearities have on the transient linear processes. 
 To this effect, we note that the advective nonlinearity in Eq.~\ref{mat_eq} has the form of the state vector divided by a time $\tau_{\rm{nl}} \sim (v_E k_\perp)^{-1}$. This nonlinear
-time scale is generally associated with the eddy turnover time or the time in which eddies become decorrelated. We therefore present a heuristical model of the nonlinearities 
+time scale is generally associated with the eddy turnover or decorrelation time. We therefore present a heuristic model of the nonlinearities 
 as a randomizing force that acts on this characteristic nonlinear time scale.
 Specifically, we start with a random initial condition, evolve it linearly for a time $\tau_{\rm{nl}}$, and then re-randomized the system.
 While the nonlinearities obviously do not affect the system in discrete time steps, this simplification provides a way to use linear non-modal analysis in a predictive manner.
-In other words, there are certain spatial structures associated with the curves in Fig.~\ref{m20n0_time_evs} b) that change as a function of time. We consider only those structures from $t=0$ (where
-the structures are completely random) to $t = \tau_{\rm{nl}}$, and associate those structures with turbulent structures.
+Under this assumption, transient growth occurs only for one decorrelation time and the turbulent growth rate is calculated as the average growth rate experienced over one decorrelation time. 
 
-Now, since we do not know \emph{a priori} at what level the turbulence will saturate, we cannot calculate the relative magnitude of $\tau_{\rm{nl}}$ from $(v_E k_\perp)^{-1}$ directly.
+Since we do not know \emph{a priori} at what level the turbulence will saturate, we cannot calculate the relative magnitude of $\tau_{\rm{nl}}$ from $(v_E k_\perp)^{-1}$ directly.
 Thus, we invoke the conjecture of \emph{critical balance}, which posits that the nonlinear time scale equals the linear time scale at all spatial scales~\cite{schekochihin2012}. 
 We can then estimate the nonlinear time scale as $\tau_{\rm{nl}} = \omega_s^{-1}$ -- the inverse of the linear frequency (at each $m,n$).
-However, $\omega_s = 0$ for $n=0$ eigenmodes, so we are forced to use $\omega_s$ for the fastest growing $n=1$ eigenmode at each $m$ to get a meaningful time scale. This is not wholly
+However, $\omega_s = 0$ for $n=0$ linear eigenmodes, so we are forced to use $\omega_s$ for the fastest growing $n=1$ eigenmode at each $m$ to get a meaningful time scale. This is not wholly
 unjustified, however, due to the inherent nonlinear coupling of different modes, which is evident in Eq.~\ref{mat_eq}.
-From Fig.~\ref{m20n0_time_evs} b), it is clear that the transient growth is cut off well before optimal amplification occurs. 
-But as reflected by our procedure, there is no guarantee that the nonlinearities will allow complete non-modal amplification.
+In Fig.~\ref{m20n0_time_evs} b), this time scale is indicated -- from this it is clear that the transient growth is cut off well before optimal amplification occurs. 
 
-We go on to calculate the ``Transient Growth Rate'', which is the average from $t=0$ to $t=\omega_s^{-1}$ of the instantaneous growth rate of the ensemble averaged curve.
+We define the ``Transient Growth Rate'' as the average from $t=0$ to $t=\omega_s^{-1}$ of the instantaneous growth rate of the ensemble averaged growth curve.
 In Fig.~\ref{spec_nl_transient_gamma}, we compare the Transient Growth Rate Spectra (labeled ``Trans. $\omega_s^{-1}$'') to the Turbulent Growth Rate Spectra.
-The $n=0$ curves in Fig.~\ref{spec_nl_transient_gamma} a) are fairly similar, especially when compared to the eigenmode spectra.
-The $n=1$ curves in Fig.~\ref{spec_nl_transient_gamma} b), on the other hand, are not very similar, although they trend with $m$ in the same way, which is very different from the linear eigenmode trend.
+Although the Transient Growth Rate Spectrum for $n=0$ is downshifted in $m$ number relative to the spectrum derived from the nonlinear simulation, the two curves in Fig.~\ref{spec_nl_transient_gamma} a)
+are fairly similar in shape and magnitude.
+The $n=1$ curves in Fig.~\ref{spec_nl_transient_gamma} b), on the other hand, are not very similar, although the Transient Growth Rate correctly predicts energy damping in the region where
+eigenmode growth is predicted.
 The difference between the $n=1$ transient and turbulent growth rate spectra is due to nonlinear effects not captured by the simple transient calculation procedure. In particular, the nonlinear
-simulation has a strong energy transfer from $n=0$ to $n=1$ Fourier components which is then dissipated by electron-ion collisions as the electrons stream along the field lines~\cite{friedman2012b}. 
+simulation has a strong energy transfer from $n=0$ to $n=1$ which is then dissipated by electron-ion collisions as the electrons stream along the field lines~\cite{friedman2012b}. 
 
 We include one more growth rate curve in Fig.~\ref{spec_nl_transient_gamma}, labelled ``Trans $\omega_s^{-1}$ cascade,'' to address the apparent downshift (in $m$) of
 the ``Trans $\omega_s^{-1}$'' curve in comparison to the turbulent curve. The downshift is a consequence of using $\omega_s^{-1}$ at each $m$ for the nonlinear time scale at that same $m$. 
 As seen in Eq.~\ref{mat_eq}, though, $v_{m,n}$ is affected by every $\mathbf{v}_{E,m-m',n-n'} k^{'}_\perp$, not by only $\mathbf{v}_{E,m,n} k_\perp$. 
 To address this, we pose a simple forward cascade model for the nonlinearity. That is, $v_{m,n}$ should be
 most affected by the term with $m' = m/2 \rightarrow m-m' = m/2$, corresponding to eddy mitosis. Then, $\mathbf{v}_{E,m-m',n-n'} k^{'}_\perp \sim \mathbf{v}_{E,m/2} k^{'}_\perp/2 \sim \omega_{s,m/2}^{-1}$, 
-so we use $\omega_s^{-1}$ at $m/2$ for the randomizing time scale at $m$ in deriving the ``Trans $\omega_s^{-1}$ cascade'' curves in Fig.~\ref{spec_nl_transient_gamma}. 
+so we use $\omega_s^{-1}$ at $m/2$ for the randomizing time scale at $m$ in deriving the ``Trans $\omega_s^{-1}$ cascade'' curves. 
 The $n=0$ curve matches well with the $n=0$ Turbulent Growth Rate curve at $m>20$, but poorly for $m<20$, which is expected because the cascade applies only at high $m$. \emph{A priori}, we
 cannot determine the minimum $m$ for which the cascade should apply, so this method is not predictive.
 
@@ -349,23 +343,20 @@ growth ratio curves with the cascade curve using $\omega_s^{-1}$ at $m/2$ rather
 \end{figure}
 
 Nevertheless, our randomizing transient method, which requires only linear calculations, reproduces energetic growth properties of the turbulence that are not captured by eigenmode analysis.
-Clearly, when the linear systems are highly non-normal, transient growth rate analyses should be performed in place of (or in addition to) linear eigenmode analyses. 
+Clearly, when the linear systems are highly non-normal, transient growth rate analyses should be preferred over linear eigenmode analyses. 
 Furthermore, the transient growth rates should be used in the kinds of predictions that are currently made with eigenmode growth rates. 
-For instance, quasilinear theory uses the most unstable eigenmode growth rate $\gamma_{s,max}$ to predict the turbulent saturation levels through the mixing length formula $\gamma/k_\perp^2$. 
-Using this formula with $\gamma_{s,\rm{max}} = 0.002$ and $m=60$, one would predict a turbulent saturation level on the order of $0.1 \%$. 
+For instance, quasilinear theory uses the most unstable eigenmode growth rate $\gamma_{s,max}$ to predict the turbulent saturation levels using a mixing-length argument 
+(saturated amplitude $\sim \gamma/k_\perp^2$). 
+Using this formula with $\gamma_{s,\rm{max}} = 0.002$ and $m=60$, one would predict a turbulent saturation level on the order of $0.1 \%$ which is wholly inconsistent with experiment and simulation. 
 On the other hand, using this formula with the transient values $\gamma_{t,\rm{max}} = 0.003, \ m=10$, we predict the saturation level on the order of $10 \%$,
-which matches the saturation level in the nonlinear simulation.
+which is consistent with the nonlinear simulation and with experimental measurements.
 
-In summary, non-modal linear calculations are more informative than normal mode calculations when the linear system under consideration is highly non-normal. In the specific case of a low-flow
-LAPD experiment, a nonlinear instability with linear $k_\para=0$ drive dominates the energy dynamics of the turbulence. While this is a surprising result in light of normal mode analysis,
-it is not at all surprising given the system's non-modal behavior, which we show with a technique that takes into account the effect of the nonlinearities. 
-In general, non-modal initial-value analysis is difficult to quantify and make predictive, but using some simple nonlinear modelling, we have shown that it is possible. Future studies will
-attempt to improve on the nonlinear modelling and expand the use of this non-modal technique to other non-normal turbulence models.
-
-\begin{acknowledgments}
-This work was supported by the National Science Foundation (Grant PHY-1202007)
-\end{acknowledgments}
-
+In summary, we present a procedure in which prediction of turbulent properties, in particular the turbulent growth rate spectrum, can be
+made using non-modal linear calculations. In the specific case of a low-flow LAPD experiment, this procedure captures the behavior of a
+nonlinear instability that is observed to dominate the dynamics of the turbulence in a well-validated nonlinear simulation.  In general,
+non-modal initial-value analysis is difficult to quantify and make predictive, but using some simple nonlinear modelling, we have shown
+that it is possible. Future studies will attempt to improve on the nonlinear modelling and expand the use of this non-modal technique to
+other non-normal turbulence models.  This work was supported by the National Science Foundation (Grant PHY-1202007)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
