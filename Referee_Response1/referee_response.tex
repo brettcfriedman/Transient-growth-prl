@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\setlength{\parindent}{0in}
+
+% General Latex  --------------------------------------------------
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\beqar{\begin{eqnarray}}
+\def\eeqar{\end{eqnarray}}
+\def\nn{\nonumber}
+\def\ol{\overline}
+\def\para{\parallel}
+
+% Operators  ------------------------------------------------------
+\newcommand{\diff}[2]{\frac{d#1}{d#2}}
+\newcommand{\diffs}[2]{\frac{d^2#1}{d#2^2}}
+\newcommand{\pdiff}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdiffs}[2]{\frac{\partial^2#1}{\partial#2^2}}
+\newcommand{\pdiffxy}[3]{\frac{\partial^2#1}{\partial#2 \partial#3}}
+\newcommand{\pdt}{\partial_t}
+\newcommand{\pdr}{\partial_r}
+\newcommand{\pdth}{\partial_\theta}
+\newcommand{\pdrr}{\partial^2_r}
+
+\newcommand{\enum}[2]{{#1}\times10^{#2}} % 4.2x10^{3} = \enum{4.2}{3}
+
+\newcommand{\vect}[1]{{\bf #1}}
+%\newcommand{\vect}{\overrightarrow}
+%\newcommand{\vect}{\vec}
+\def\div{\nabla\cdot}
+\def\grad{\nabla}
+\def\curl{\nabla\times}
+\newcommand{\gradpar}{\grad_\parallel}
+\newcommand{\gradperp}{\grad_\perp}
+\newcommand{\gradr}{\grad_r}
+\newcommand{\defeq}{\ensuremath{\stackrel{\text{\tiny def}}{=}}}
+
+\newcommand{\savg}[1]{\left<{#1}\right>}
+\newcommand{\vavg}[1]{\left<{#1}\right>_V}
+\newcommand{\thavg}[1]{\left<{#1}\right>_\theta}
+
+% Variable names  -------------------------------------------------
+\newcommand{\vpar} {v_\parallel}
+\newcommand{\Apar} {A_\parallel}
+\newcommand{\jpar} {j_\parallel}
+\newcommand{\kpar} {k_\parallel}
+\newcommand{\kperp} {k_\perp }
+\newcommand{\vperp} {v_\perp }
+\newcommand{\kthe}{k_\theta}
+
+\newcommand{\Evec}{\ensuremath{\boldsymbol{{\rm E}}}}
+\newcommand{\Bvec}{\ensuremath{\boldsymbol{{\rm B}}}}
+\newcommand{\Jvec}{\ensuremath{\boldsymbol{{\rm J}}}}
+\newcommand{\Fvec}{\ensuremath{\boldsymbol{{\rm F}}}}
+\newcommand{\fvec}{\ensuremath{\boldsymbol{{\rm f}}}}
+\newcommand{\vE}{\ensuremath{\boldsymbol{{\rm v}_{E}}}}
+\newcommand{\bo}{\ensuremath{\boldsymbol{{\rm b}_0}}}
+\newcommand{\bvec}{\ensuremath{\boldsymbol{{\rm b}}}}
+\newcommand{\xvec}{\ensuremath{\boldsymbol{{\rm x}}}}
+\newcommand{\yvec}{\ensuremath{\boldsymbol{{\rm y}}}}
+\newcommand{\zvec}{\ensuremath{\boldsymbol{{\rm z}}}}
+\newcommand{\vvec}{\ensuremath{\boldsymbol{{\rm v}}}}
+\newcommand{\jvec}{\ensuremath{\boldsymbol{{\rm j}}}}
+
+\newcommand{\bxgp}{\bvec\times\gradperp}
+
+\newcommand{\vve}{\ensuremath{\boldsymbol{{\rm v}}_{e}}}
+\newcommand{\vvi}{\ensuremath{\boldsymbol{{\rm v}}_{i}}}
+\newcommand{\vpe}{v_{\parallel e}}
+\newcommand{\vpi}{v_{\parallel i}}
+\newcommand{\vvE}{\ensuremath{\boldsymbol{{\rm v}}_{E}}}
+\newcommand{\vvD}{\ensuremath{\boldsymbol{{\rm v}}_{D}}}
+
+\newcommand{\nuei}{\nu_{ei}}
+\newcommand{\nuii}{\nu_{ii}}
+\newcommand{\nue}{\nu_{e}}
+\newcommand{\nuen}{\nu_{en}}
+\newcommand{\nuin}{\nu_{in}}
+\newcommand{\kpe}{\kappa_{\parallel e}}
+
+\newcommand{\rs}{\rho_{s}}
+\newcommand{\ri}{\rho_{i}}
+\newcommand{\wci}{\Omega_{i}}
+\newcommand{\wcix}{\Omega_{ix}}
+\newcommand{\wce}{\Omega_{e}}
+\newcommand{\tomega}{\tilde\omega}
+\newcommand{\Isat}{I_{\rm sat}}
+\newcommand{\fmie}{\frac{m_i}{m_e}}
+\newcommand{\fmei}{\frac{m_e}{m_i}}
+
+
+% Often used dimensions
+\newcommand{\cm}{\rm cm}
+\newcommand{\mm}{\rm mm}
+\newcommand{\cmn}{{\rm cm}^{-3}}
+\newcommand{\mn}{{\rm m}^{-3}}
+\newcommand{\eV}{\rm eV}
+\newcommand{\G}{\rm G}
+\newcommand{\T}{\rm T}
+
+
+
+\begin{document}
+
+
+{\bf Response to Referees \\
+ \\
+ \\} 
+Brett Friedman \\
+Updated: \today \\
+
+\hrulefill
+
+\section{Referee 1}
+
+\emph{1) After advocating the use of non-modal structures rather than linear eigenmodes for the
+entirety of the paper, the author use a time-scale derived from linear eigenmodes (see
+page 4, paragraph 2). Furthermore, they use the frequency for the n=1 mode instead of
+that for the n=0 mode(s), with no apparent justification (other than "nonlinear coupling”).
+It would seem much more consistent to use the time-scale for the nonlinear instability
+they talk about earlier (although this would mean perhaps a loss of predictability that they
+are very keen on). To us, this appears to be the weakest link in the paper. Perhaps, if they
+present this paper as a study of the turbulence properties instead, they could give
+information on how the curves in Figure 3 change with the choice of the linear time-
+scale. It would seem that this would be much more useful to the reader in assessing the
+power of the non-modal analysis, rather than presenting just two choices, and claiming
+predictability. } \\
+
+Response: \\
+
+
+\emph{2) What closure assumption is used to write equation (5)?} \\
+
+
+Response: We do not really understand this question. We do not use any closure to write equation 5. It is an exact equation that can be derived from the model equations~\cite{friedman2012b,friedman2013}. \\
+
+
+\emph{3) On page 2, last paragraph, there is a puzzling statement: "Perhaps one of the most
+useful statistical properties that we can predict is the turbulent growth rate spectrum.” Do
+they actually have a measurement of the turbulent growth rate spectrum? Since
+predictability is one of their prime concerns, what measurable transport property does the
+growth rate spectrum relate to?}
+
+Response: We acknowledge that this was too cryptic a statement. In it's place, we have inserted the following, ``These properties can be calculated through mixing length formulas if the turbulent growth rate spectrum is known.'' Then, as before, we proceed to calculate the turbulent growth rate spectrum from the nonlinear simulation (shown in Figure 1b) and also calculate it from our non-modal linear procedure (labelled $\gamma_{TR}$, the results of which are shown in Figure 3. At the end of the paper, we use the $\gamma_{TR}$ spectrum through the mixing length formula $\gamma/k_\perp^2$ to calculate the turbulent saturation level. \\
+
+
+\emph{4) We think a log scale should be used for Figure 2. On the scale used in the paper, it is
+impossible to determine if the growth rate at short times is somewhat similar to $G_{max} (t)$
+or quite different. If similar, the potential for formulating fully analytic models is more
+promising.} \\
+
+Response: We have changed Figure 2 to a log scale. The growth rate of the ensemble of curves is not close to the growth rate of $G_{max}(t)$, unfortunately, which is why we did not use it in the calculations of the transient growth rate spectrum. \\
+
+\emph{5) Minor point: Figure 3 is confusing simply because the important curves are not
+sufficiently well-delineated. For example, the turbulent growth rate spectrum should be
+bold (or something equivalent) to distinguish it from the others.} \\
+
+Response: The curves are different colors, so they should be distinguishable, but not in black and white. Thus, we have put symbols on them. \\
+
+
+\section{Referee 2}
+
+\emph{1) I find this manuscript somewhat confusing, especially when the authors try to cast it as a ‘non-modal analysis’. For non-modal stability analysis of a linear system,}
+
+\beq
+\diff{\mathbf{u}}{t} = \mathbf{A u} \nonumber
+\eeq
+
+\emph{I would expect the prediction of the short time behavior of some norm of $\mathbf{u}$ through the mathematical analysis of $\mathbf{A}$
+by methods other than the standard eigenmode decomposition, e.g., by methods based on the $\epsilon$-pseudospectrum and/or numerical range.}
+
+\emph{If I understand correctly, the method presented here starts by dropping the nonlinear terms in
+the equations of motion of the reduced Braginskii 2-fluid model. The resulting linear system is
+numerically simulated up to a time $\tau_{nl}$ at which the system is then ‘re-randomized’ — whatever
+it means. A growth rate $\gamma_{TR}$ defined and computed using data between $t = 0$ and $t = \tau_{nl}$ then
+constitutes the prediction by this method. So it seems that the ‘non-modal method’ described in
+this manuscript is basically a numerical simulation of the linearized equations of motion. While
+prediction of turbulent properties by numerical simulations can be useful, it probably has less
+impact than a theoretical prediction (which is admittedly much more difficult).} \\
+
+Response: We contend that our method is a form of 'non-modal analysis'. That is, we use only linear calculations to find growth rates without using normal modes (eigenvalues and eigenvectors). While most non-modal analysis in the literature seems to center around the calculation of the $epsilon$-pseudospectrum, much also includes the calculation of $||e^{\mathbf{A} t}||$ and $||e^{\mathbf{A} t} \mathbf{u}(0)||$ with various optimal $\mathbf{u}(0)$ vectors. \\
+
+
+
+
+\emph{2) For the procedure described above, there are several things I do not fully understand. First of
+all, if $\gamma_{TR}$ is only computed using data for $0 < t < \tau_{nl}$, how does the ‘re-randomization’ at $t = \tau_{nl}$
+come into play? I am probably missing something here.} \\
+
+
+Response: We agree that this was a confusing way to word our procedure. We therefore have replaced our previous wording with the following: ``we start with an ensemble of random initial conditions, evolve them linearly for a time $\tau_{\rm{nl}}$, and then take the time and ensemble average growth rate of these curves. 
+This procedure mimicks what would happen if the turbulence evolved linearly for a time $\tau_{\rm{nl}}$, randomized, and then repeated.''
+\\
+
+
+\emph{3) Secondly, the various growth rates used here are defined as}
+
+\beq
+\gamma(m,n) = \frac{Q(m,n) + D(m,n)}{E(m,n)} \nonumber
+\eeq
+\emph{whereas the evolution of the energy for mode $(m, n)$ is given by}
+
+\beq
+\diff{E(m,n)}{t} = Q(m,n) + D(m,n) + \sum_{m',n'} T(m,m',n,n') \nonumber
+\eeq
+\emph{What is the reason of ignoring $T$ in the definition of $\gamma$? Similarly, what is the meaning/significance
+of plotting $E(m, n, t)$ with nonlinearities turned off?  $\sum_{m',n'} T(m,m',n,n')$ is non-zero and contributes to 
+$\diff{E(m, n)}{t}$ even though $\sum_{m,m',n,n'} T(m,m',n,n') = 0$. Would it be more informative
+to compare $\gamma_{TR}$ to $\diff{E(m, n)}{t}$ instead of the $\gamma_e (m, n)$ defined in the manuscript (which ignores
+contribution from $T$ )?} \\
+
+
+Response: The reason why $T$ is missing from the definition of $\gamma$ is because $\diff{E(m,n)}{t} = Q(m,n) + D(m,n) + \sum_{m',n'} T(m,m',n,n')$ is virtually zero when the turbulence is in steady state (by definition of steady state). It may not be zero at a given time, but it is zero on average, and thus not suitable for use in defining the growth rate spectrum, which is a time-averaged property (see Figure 1b for the average and the spread in the growth rate). If we were to include $T$ in the definition, the turbulent growth rate curves in Figure 1b would be zero with some finite spread. So we can't use $T$ in the definition.
+
+More informatively, the growth rate we use (We didn't invent it. It has been used for many years in numerous papers.) is a measure, by wavenumber, of the rate at which the fluctuations take energy from the equilibrium gradients (or return energy if the growth rate is negative). This comes purely from the linear terms. The nonlinear terms transfer energy between different fluctuation 'modes', but do not affect the overall energy budget.
+So the picture is that certain modes or structures (those with positive $\gamma$) inject energy from the equilibrium gradients into the fluctuations through the linear terms. Those modes then non-linearly transfer energy to other modes in an overall conservative way (like a cascade). When energy is nonlinearly transferred into modes with negative growth rate, that energy is dissipated. In the case of normal linear operators, the unstable linear eigenvectors inject energy, transfer that energy to stable linear eigenvectors, which then dissipate the energy. For normal operators, one would expect this growth rate to be pretty similar to the fastest growing eigenmode growth rate, though it could be smaller. But it certainly cannot be larger. We have added and modified quite a bit of text and added a reference~\cite{terry2006b}, which uses this growth rate so that it doesn't appear that we have invented it.
+
+Finally, the reason we plot $E(m,n,t)$ with the nonlinearities turned off is to show that the linear terms alone cause (transient) growth of the fluctuations despite the fact that the $n=0$ mode numbers contain no unstable eigenmodes. It illustrates that the turbulent structures inject energy into the fluctuations in the short term. \\
+
+
+\emph{4) I also feel that the clarity of the present manuscript suffers because of the page limitation of
+PRL, a lot of the symbols are not defined (e.g. $v_E$, $N_r$ ) making it difficult for the general audience.
+Together with the concerns raised above, I am afraid I cannot recommend the publication of the
+present manuscript in the PRL.} \\
+
+
+Response: \\
+
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+%
+%
+
+\end{document}
