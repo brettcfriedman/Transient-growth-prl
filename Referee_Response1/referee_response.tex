@@ -114,21 +114,23 @@ Updated: \today \\
 \section{Overview of Changes}
 
 Before responding to specific comments, questions, and requests from the referees, we would like to note that we have significantly changed parts of the manuscript. First, we have
-changed the way we calculate the $|e^{A t}u(0)|$ curves where we used an ensemble of initial conditions. Before we made many initial conditions, evolved them by this formula and then
-calculated the ensemble average. This way seemed a bit like performing numerical simulations. Now we have an analytic method of calculation which doesn't involve setting up any initial
+changed the way we calculate the $|e^{A t}u(0)|$ curves, in which we used an ensemble of initial conditions for the $u(0)$. Before we explicitely randomized a thousand or so initial conditions, 
+evolved them by this formula and then calculated the ensemble average. This way seemed a bit like performing numerical simulations as pointed out by referee \#2. 
+Now we have an analytic method of calculation which doesn't involve setting up any initial
 conditions, so it is not at all like simulation (see Eq. 10) and is much more elegant.
 
 Second, recall that our method involved choosing a linear time scale as a proxy for the eddy turnover time, for which we chose the inverse of a linear eigenvalue frequency. 
-As the first referee pointed out, we didn't properly justify this choice. Since we have no theoretical justification, 
+As referee \#1 pointed out, we didn't properly justify this choice. Since we have no theoretical justification for this choice over others, 
 we have now included a few more linear time scales and studied the result for each of these. Furthermore, we no longer claim that our method
 is predictive because we have no way to know \emph{a priori} which linear time scale will work best. However, all of the linear time scales do work well to a certain degree, so
 we do obtain a degree of predictivity.
 
-Otherwise, we have made various minor changes and changed two of the figures to make sense with the changes mentioned above. 
-Overall the manuscript is significantly different than before, and we feel it is much stronger.
+Otherwise, we have made various minor changes and changed two of the figures to fit in with the above changes to the manuscript. 
+Overall the paper is significantly different than before, and we feel it is much stronger, thanks in part to the comments from the referees.
+Below we respond specifically to the points brought forth by the referees.
 
 
-\section{Referee 1}
+\section{Referee \#1}
 
 \emph{1) After advocating the use of non-modal structures rather than linear eigenmodes for the
 entirety of the paper, the author use a time-scale derived from linear eigenmodes (see
@@ -144,17 +146,15 @@ power of the non-modal analysis, rather than presenting just two choices, and cl
 predictability. } \\
 
 Response: This is a valid criticism. We thought a lot about this and tried a few different linear time scales. The one we chose worked best, but it is difficult to justify it otherwise.
-We agree that this is the weakest link of the paper. We also think that the suggestion of presenting several choices of linear time scales is a good one, so this is what we've done.
+We agree that this was the weakest link of the paper. We also thought that the suggestion of presenting several choices of linear time scales was a good one, so this is what we've done.
 We've presented four different choices of linear time scale and compared the results to each other. We have also softened our language on predictive capability and presented our results
 as a way of understanding the turbulent growth rate through linear non-modal calculations with the ultimate goal of achieving prediction. \\
 
-
 \emph{2) What closure assumption is used to write equation (5)?} \\
 
-
-Response: We do not really understand this question. We do not use any closure to write equation 5. It is an exact equation that can be derived from the model equations~\cite{friedman2012b,friedman2013}. 
-We have also now written it differently to make it simpler and more obvious. \\
-
+Response: We do not really understand this question. If by closure, you mean an approximation of the nonlinearity, then we do not use any closure to write equation 5. 
+It is an exact equation that can be derived from the model equations~\cite{friedman2012b,friedman2013}.
+We have also now written it differently to make it simpler and more transparent we hope. \\
 
 \emph{3) On page 2, last paragraph, there is a puzzling statement: "Perhaps one of the most
 useful statistical properties that we can predict is the turbulent growth rate spectrum.” Do
@@ -162,7 +162,9 @@ they actually have a measurement of the turbulent growth rate spectrum? Since
 predictability is one of their prime concerns, what measurable transport property does the
 growth rate spectrum relate to?} \\
 
-Response: We acknowledge that this was too cryptic a statement. In it's place, we have inserted the following, ``These properties can be calculated through mixing length formulas if the turbulent growth rate spectrum is known.'' Then, as before, we proceed to calculate the turbulent growth rate spectrum from the nonlinear simulation (shown in Figure 1a) and also calculate it from our non-modal linear procedure. \\
+Response: We acknowledge that this was too cryptic a statement. In it's place, we have inserted the following, 
+``The procedure ultimately produces growth rate spectra that can be used to predict turbulent properties such as saturation levels and transport rates through mixing length arguments.''
+Then, as before, we proceed to calculate the growth rate spectrum from the nonlinear simulation (shown in Figure 1a) and also calculate it from our non-modal linear procedure. \\
 
 
 \emph{4) We think a log scale should be used for Figure 2. On the scale used in the paper, it is
@@ -180,7 +182,7 @@ bold (or something equivalent) to distinguish it from the others.} \\
 Response: This figure is also much different now, but we have tried to make all of the curves distinguishable by using different colors along with symbols so that they are even distinguishable in black and white.\\
 
 
-\section{Referee 2}
+\section{Referee \#2}
 
 \emph{1) I find this manuscript somewhat confusing, especially when the authors try to cast it as a ‘non-modal analysis’. For non-modal stability analysis of a linear system,}
 
@@ -200,15 +202,15 @@ this manuscript is basically a numerical simulation of the linearized equations 
 prediction of turbulent properties by numerical simulations can be useful, it probably has less
 impact than a theoretical prediction (which is admittedly much more difficult).} \\
 
-Response: We contend that our method is a form of 'non-modal analysis'. That is, we use only linear calculations to find growth rates without using normal modes (eigenvalues and eigenvectors). While most non-modal analysis in the literature seems to center around the calculation of the $epsilon$-pseudospectrum, much also includes the calculation of $||e^{\mathbf{A} t}||$ and $||e^{\mathbf{A} t} \mathbf{u}(0)||$ with various optimal $\mathbf{u}(0)$ vectors, i.e. to get the numerical range. More importantly, however, it would be helpful to have a more theoretical prediction that doesn't require simulation. In that regard, we have come across a method~\cite{camargo1998} that can replicate our numerical simulations with a simple calculation that looks much more like a typical non-modal calculation. See Eqs. 9 and 10. \\
+Response: We contend that our method (especially our new one) is a form of 'non-modal analysis'. That is, we use only linear calculations to find growth rates without using normal modes (eigenvalues and eigenvectors). While most non-modal analysis in the literature seems to center around the calculation of the $epsilon$-pseudospectrum, much also includes the calculation of $||e^{\mathbf{A} t}||$ and $||e^{\mathbf{A} t} \mathbf{u}(0)||$ with various optimal $\mathbf{u}(0)$ vectors, i.e. to get the numerical and numerical abscissa. More importantly, however, it would be helpful to have a more theoretical prediction that doesn't require simulation. In that regard, we have come across a method~\cite{camargo1998} that can replicate our numerical simulations with a simple calculation that looks much more like a typical non-modal calculation. See Eqs. 9 and 10. \\
 
 \emph{2) For the procedure described above, there are several things I do not fully understand. First of
 all, if $\gamma_{TR}$ is only computed using data for $0 < t < \tau_{nl}$, how does the ‘re-randomization’ at $t = \tau_{nl}$
 come into play? I am probably missing something here.} \\
 
 
-Response: We agree that this was a confusing way to word our procedure. We therefore have replaced our previous wording with the following: ``we start with an ensemble of random initial conditions, evolve them linearly for a time $\tau_{\rm{nl}}$, and then take the time and ensemble average growth rate of these curves. 
-This procedure mimicks what would happen if the turbulence evolved linearly for a time $\tau_{\rm{nl}}$, randomized, and then repeated.'' Also, we use the non-modal calculation discussed above, added more equations, and replaced Figure 2 to make our procedure more clear.
+Response: We agree that this was a confusing way to word our procedure. We therefore have replaced our previous wording with the following: ``we start with an ensemble of random initial conditions, evolve them linearly for a time $\tau_{nl}$, then take the time and ensemble averaged growth rate of these curves. This procedure calculates the average growth rate of the turbulence as if the turbulence evolved linearly for a time $\tau_{nl}$, randomized, and then repeated.'' 
+Also, we use the non-modal calculation discussed above, added more equations, and replaced Figure 2 to make our procedure more clear.
 \\
 
 
@@ -229,10 +231,12 @@ to compare $\gamma_{TR}$ to $\diff{E(m, n)}{t}$ instead of the $\gamma_e (m, n)$
 contribution from $T$ )?} \\
 
 
-Response: The reason why $T$ is missing from the definition of $\gamma$ is because $\diff{E(m,n)}{t} = Q(m,n) + D(m,n) + \sum_{m',n'} T(m,m',n,n')$ is virtually zero when the turbulence is in steady state (by definition of steady state). It may not be zero at a given time, but it is zero on average, and thus not suitable for use in defining the growth rate spectrum, which is a time-averaged property (see Figure 1b for the average and the spread in the growth rate). If we were to include $T$ in the definition, the turbulent growth rate curves in Figure 1b would be zero with some finite spread. So we can't use $T$ in the definition.
+Response: Note that we have changed our notation in the text, and added some more equations and discussions of this so that this issue should now be clear. But we will explain here anyway. 
+
+The reason why $T$ is missing from the definition of $\gamma$ is because $\diff{E(m,n)}{t} = Q(m,n) + D(m,n) + \sum_{m',n'} T(m,m',n,n')$ is virtually zero when the turbulence is in steady state (by definition of steady state). It may not be zero at a given time, but it is zero on average, and thus not suitable for use in defining the growth rate spectrum, which is a time-averaged property (see Figure 1a for the average and the spread in the growth rate). If we were to include $T$ in the definition, the turbulent growth rate curves in Figure 1b would be zero with some finite spread. So we can't use $T$ in the definition.
 
 More informatively, the growth rate we use (We didn't invent it. It has been used for many years in numerous papers.) is a measure, by wavenumber, of the rate at which the fluctuations take energy from the equilibrium gradients (or return energy if the growth rate is negative). This comes purely from the linear terms. The nonlinear terms transfer energy between different fluctuation 'modes', but do not affect the overall energy budget.
-So the picture is that certain modes or structures (those with positive $\gamma$) inject energy from the equilibrium gradients into the fluctuations through the linear terms. Those modes then non-linearly transfer energy to other modes in an overall conservative way (like a cascade). When energy is nonlinearly transferred into modes with negative growth rate, that energy is dissipated. In the case of normal linear operators, the unstable linear eigenvectors inject energy, transfer that energy to stable linear eigenvectors, which then dissipate the energy. For normal operators, one would expect this growth rate to be pretty similar to the fastest growing eigenmode growth rate, though it could be smaller. But it certainly cannot be larger. We have added and modified quite a bit of text and added a reference~\cite{terry2006b}, which uses this growth rate so that it doesn't appear that we have invented it.
+So the picture is that certain modes or structures (those with positive $\gamma$) inject energy from the equilibrium gradients into the fluctuations through the linear terms. Those modes then non-linearly transfer energy to other modes in an overall conservative way (like a cascade). When energy is nonlinearly transferred into modes with negative growth rate, that energy is dissipated. In the case of normal linear operators, the unstable linear eigenvectors inject energy, the nonlinearities transfer that energy to stable linear eigenvectors which then dissipate the energy. For normal operators, one would expect this growth rate to be pretty similar to the fastest growing eigenmode growth rate, though it could be smaller. But it certainly cannot be larger. We have added and modified quite a bit of text and added a reference~\cite{terry2006b}, which uses this growth rate so that it doesn't appear that we have invented it.
 
 Finally, the reason we plot $E(m,n,t)$ with the nonlinearities turned off is to show that the linear terms alone cause (transient) growth of the fluctuations despite the fact that the $n=0$ mode numbers contain no unstable eigenmodes. It illustrates that the turbulent structures inject energy into the fluctuations in the short term. \\
 
